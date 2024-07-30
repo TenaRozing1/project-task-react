@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import CardList from "../employees/employees.component";
 
 const Home = () => {
   const [employees, setEmployees] = useState([]);
@@ -18,15 +19,8 @@ const Home = () => {
 
   return (
     <div>
-      <h1>hello</h1>
       <h1>Employees</h1>
-      <div className="employee-cards">
-        {employees.map((employee) => (
-          <div key={employee.id} className="employee-card">
-            <h2>{employee.firstName}</h2>
-          </div>
-        ))}
-      </div>
+      <CardList employees={employees} />
     </div>
   );
 };
