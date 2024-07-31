@@ -2,6 +2,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/navigation/navigation.component";
 import Home from "./components/homepage/homepage.component";
+import AddEmployee from "./components/employee-form/employee.form";
 
 const App = () => {
   return (
@@ -9,7 +10,7 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        {/* <Route path="/add-employee" element={<AddEmployee />} />  */} 
+        <Route path="/add-employee" element={<AddEmployee />} />
       </Routes>
     </>
   );
