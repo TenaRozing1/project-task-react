@@ -22,7 +22,6 @@ const Home = () => {
           ...new Set(employeesData.map((employee) => employee.jobTitle)),
         ];
         setJobTitles(uniqueJobTitles);
-        console.log(uniqueJobTitles)
       })
       .catch((error) => {
         console.error("Error fetching the employees!", error);
