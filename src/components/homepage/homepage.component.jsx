@@ -3,6 +3,7 @@ import axios from "axios";
 import CardList from "../employees/employees.component";
 import SearchBox from "../search-box/search-box.component";
 import SelectComponent from "../select-component/select.component";
+import SortComponent from "../sort-component/sort.component";
 
 const Home = () => {
   const [employees, setEmployees] = useState([]);
@@ -10,6 +11,8 @@ const Home = () => {
   const [searchField, setSearchField] = useState("");
   const [selectedPosition, setSelectedPosition] = useState("");
   const [jobTitles, setJobTitles] = useState([]);
+  const [sortField, setSortField] = useState("");
+  
 
   useEffect(() => {
     axios
@@ -39,8 +42,16 @@ const Home = () => {
         : true;
       return matchesSearch && matchesPosition;
     });
+
+    const sortedEmployees = newFilteredEmployees.sort((a, b) => {
+      if (!sortField) return 0;
+      if (a[sortField] < b[sortField]) return -1;
+      if (a[sortField] > b[sortField]) return 1;
+      return 0;
+    });
+
     setFilteredEmployees(newFilteredEmployees);
-  }, [employees, searchField, selectedPosition]);
+  }, [employees, searchField, selectedPosition, sortField]);
 
   const onSearchChange = (event) => {
     const searchFieldString = event.target.value.toLowerCase();
@@ -50,6 +61,11 @@ const Home = () => {
   const onPositionChange = (event) => {
     const position = event.target.value;
     setSelectedPosition(position);
+  };
+
+  const onSortChange = (event) => {
+    const sortFieldString = event.target.value;
+    setSortField(sortFieldString);
   };
 
   return (
@@ -65,6 +81,7 @@ const Home = () => {
         selectedPosition={selectedPosition}
         onPositionChange={onPositionChange}
       />
+      <SortComponent sortField={sortField} onSortChange={onSortChange} />
       <CardList employees={filteredEmployees} />
     </div>
   );
