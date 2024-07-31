@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import CardList from "../employees/employees.component";
 import SearchBox from "../search-box/search-box.component";
+import SelectComponent from "../select-component/select.component";
 
 const Home = () => {
   const [employees, setEmployees] = useState([]);
@@ -59,14 +60,11 @@ const Home = () => {
         placeholder="search employees"
         className=""
       />
-      <select onChange={onPositionChange} value={selectedPosition}>
-        <option value="">All Positions</option>
-        {jobTitles.map((jobTitle, index) => (
-          <option key={index} value={jobTitle}>
-            {jobTitle}
-          </option>
-        ))}
-      </select>
+      <SelectComponent
+        jobTitles={jobTitles}
+        selectedPosition={selectedPosition}
+        onPositionChange={onPositionChange}
+      />
       <CardList employees={filteredEmployees} />
     </div>
   );
