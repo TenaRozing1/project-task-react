@@ -1,28 +1,20 @@
-.custom-select {
+.input-component {
   padding: 10px;
   margin: 10px 0;
   width: 100%;
+  max-width: 400px;
   font-size: 16px;
   border: 2px solid #3498db;
   border-radius: 5px;
   outline: none;
   transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  background-color: #dde7ef;
 
   &:focus {
     border-color: #2ecc71;
     box-shadow: 0 0 5px rgba(46, 204, 113, 0.5);
-    background-color: #f0f3f1;
   }
 
-  option {
-    padding: 10px;
-    background-color: #ffffff;
-    color: #333;
-  }
-
-  .all-positions-option {
-    font-size: 18px;
-    font-weight: bold; 
+  &[type="date"] {
+    max-width: 200px;
   }
 }

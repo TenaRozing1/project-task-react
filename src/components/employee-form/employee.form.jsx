@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import InputComponent from "../input-component/input.component";
 
 const AddEmployee = () => {
   const [firstName, setFirstName] = useState("");
@@ -30,7 +31,7 @@ const AddEmployee = () => {
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="firstName">First Name:</label>
-          <input
+          <InputComponent
             type="text"
             id="firstName"
             value={firstName}
@@ -40,7 +41,7 @@ const AddEmployee = () => {
         </div>
         <div>
           <label htmlFor="lastName">Last Name:</label>
-          <input
+          <InputComponent
             type="text"
             id="lastName"
             value={lastName}
@@ -50,7 +51,7 @@ const AddEmployee = () => {
         </div>
         <div>
           <label htmlFor="dateOfBirth">Date of Birth:</label>
-          <input
+          <InputComponent
             type="date"
             id="dateOfBirth"
             value={dateOfBirth}
@@ -60,7 +61,7 @@ const AddEmployee = () => {
         </div>
         <div>
           <label htmlFor="position">Position:</label>
-          <input
+          <InputComponent
             type="text"
             id="position"
             value={position}
