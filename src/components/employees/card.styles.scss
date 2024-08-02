@@ -1,0 +1,40 @@
+.card {
+  background-color: #e8efed;
+  border: 2px solid #3ab38a;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  color: #1e4739;
+  transition: transform 0.25s ease-out;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  h2 {
+    margin: 0 !important; // znam da ovo bas nije pametno koristiti :)
+  }
+
+  .first-name {
+    font-size: 21px;
+    padding-bottom: 7px;
+  }
+
+  .last-name {
+    font-size: 24px;
+    text-transform: uppercase;
+  }
+
+  .date-of-birth {
+    font-size: 15px;
+    font-weight: 400;
+    padding-top: 13px;
+  }
+
+  .job-title {
+    padding-top: 15px;
+  }
+}

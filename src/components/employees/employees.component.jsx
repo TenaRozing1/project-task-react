@@ -1,4 +1,5 @@
 import Card from "./card.component";
+import "./employees.styles.scss";
 
 const CardList = ({ employees }) => (
   <div className="card-list">
