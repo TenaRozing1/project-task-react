@@ -4,6 +4,7 @@ import CardList from "../employees/employees.component";
 import SearchBox from "../search-box/search-box.component";
 import SelectComponent from "../select-component/select.component";
 import SortComponent from "../sort-component/sort.component";
+import Pagination from "../pagination.component/pagination.component";
 
 const Home = () => {
   const [employees, setEmployees] = useState([]);
@@ -12,12 +13,14 @@ const Home = () => {
   const [selectedPosition, setSelectedPosition] = useState("");
   const [jobTitles, setJobTitles] = useState([]);
   const [sortField, setSortField] = useState("");
-  
+  const [currentPage, setCurrentPage] = useState(1);
+  const [employeesPerPage] = useState(5);
 
   useEffect(() => {
     axios
       .get("/paganini/api/job-interview/employees")
       .then((response) => {
+        console.log(response)
         const employeesData = response.data.data;
         setEmployees(employeesData);
         setFilteredEmployees(employeesData);
@@ -50,7 +53,7 @@ const Home = () => {
       return 0;
     });
 
-    setFilteredEmployees(newFilteredEmployees);
+    setFilteredEmployees(sortedEmployees);
   }, [employees, searchField, selectedPosition, sortField]);
 
   const onSearchChange = (event) => {
@@ -68,6 +71,15 @@ const Home = () => {
     setSortField(sortFieldString);
   };
 
+  const indexOfLastEmployee = currentPage * employeesPerPage;
+  const indexOfFirstEmployee = indexOfLastEmployee - employeesPerPage;
+  const currentEmployees = filteredEmployees.slice(
+    indexOfFirstEmployee,
+    indexOfLastEmployee
+  );
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
   return (
     <div>
       <h1>Employees</h1>
@@ -82,7 +94,13 @@ const Home = () => {
         onPositionChange={onPositionChange}
       />
       <SortComponent sortField={sortField} onSortChange={onSortChange} />
-      <CardList employees={filteredEmployees} />
+      <CardList employees={currentEmployees} />
+      <Pagination
+        employeesPerPage={employeesPerPage}
+        totalEmployees={filteredEmployees.length}
+        paginate={paginate}
+        currentPage={currentPage}
+      />
     </div>
   );
 };
