@@ -16,12 +16,20 @@ const Home = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [employeesPerPage] = useState(5);
 
+  const formatDate = (dateString) => {
+    const options = { year: "numeric", month: "numeric", day: "numeric" };
+    const date = new Date(dateString);
+    return date.toLocaleDateString("hr-HR", options);
+  };
+
   useEffect(() => {
     axios
       .get("/paganini/api/job-interview/employees")
       .then((response) => {
-        console.log(response)
-        const employeesData = response.data.data;
+        const employeesData = response.data.data.map((employee) => ({
+          ...employee,
+          dateOfBirth: formatDate(employee.dateOfBirth)
+        }));
         setEmployees(employeesData);
         setFilteredEmployees(employeesData);
 
@@ -82,7 +90,7 @@ const Home = () => {
 
   return (
     <div>
-      <h1>Employees</h1>
+      <h1>Lista zaposlenika</h1>
       <SearchBox
         onChangeHandler={onSearchChange}
         placeholder="search employees"
