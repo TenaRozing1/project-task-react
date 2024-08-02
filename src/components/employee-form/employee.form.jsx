@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import InputComponent from "../input-component/input.component";
+import "./employee-form.styles.scss";
 
 const AddEmployee = () => {
   const [firstName, setFirstName] = useState("");
@@ -26,7 +27,7 @@ const AddEmployee = () => {
   };
 
   return (
-    <div>
+    <div className="add-employee-container">
       <h1>Add New Employee</h1>
       <form onSubmit={handleSubmit}>
         <div>
