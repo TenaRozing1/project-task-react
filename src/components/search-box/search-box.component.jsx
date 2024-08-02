@@ -1,3 +1,5 @@
+import "./search-box.styles.scss";
+
 const SearchBox = ({ className, placeholder, onChangeHandler }) => (
   // implicitni return jer ga nema
   <input

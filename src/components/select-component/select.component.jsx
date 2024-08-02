@@ -1,14 +1,13 @@
 import React from "react";
+import CustomSelect from "../employee-form/custom-select/custom-select.component";
 
 const SelectComponent = ({ jobTitles, selectedPosition, onPositionChange }) => (
-  <select onChange={onPositionChange} value={selectedPosition}>
-    <option value="">All Positions</option>
-    {jobTitles.map((jobTitle, index) => (
-      <option key={index} value={jobTitle}>
-        {jobTitle}
-      </option>
-    ))}
-  </select>
+  <CustomSelect
+    options={jobTitles}
+    value={selectedPosition}
+    onChange={onPositionChange}
+    defaultOption="All Positions"
+  />
 );
 
 export default SelectComponent;

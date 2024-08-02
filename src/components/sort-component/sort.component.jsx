@@ -1,12 +1,13 @@
 import React from "react";
+import CustomSelect from "../employee-form/custom-select/custom-select.component";
 
 const SortComponent = ({ sortField, onSortChange }) => (
-  <select onChange={onSortChange} value={sortField}>
-    <option value="">Sort By</option>
-    <option value="firstName">First Name</option>
-    <option value="lastName">Last Name</option>
-    <option value="jobTitle">Position</option>
-  </select>
+  <CustomSelect
+    options={["firstName", "lastName", "jobTitle"]}
+    value={sortField}
+    onChange={onSortChange}
+    defaultOption="Sort By"
+  />
 );
 
 export default SortComponent;

@@ -5,6 +5,7 @@ import SearchBox from "../search-box/search-box.component";
 import SelectComponent from "../select-component/select.component";
 import SortComponent from "../sort-component/sort.component";
 import Pagination from "../pagination.component/pagination.component";
+import "./homepage.styles.scss";
 
 const Home = () => {
   const [employees, setEmployees] = useState([]);
@@ -28,7 +29,7 @@ const Home = () => {
       .then((response) => {
         const employeesData = response.data.data.map((employee) => ({
           ...employee,
-          dateOfBirth: formatDate(employee.dateOfBirth)
+          dateOfBirth: formatDate(employee.dateOfBirth),
         }));
         setEmployees(employeesData);
         setFilteredEmployees(employeesData);
@@ -89,19 +90,21 @@ const Home = () => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <div>
-      <h1>Lista zaposlenika</h1>
-      <SearchBox
-        onChangeHandler={onSearchChange}
-        placeholder="search employees"
-        className=""
-      />
-      <SelectComponent
-        jobTitles={jobTitles}
-        selectedPosition={selectedPosition}
-        onPositionChange={onPositionChange}
-      />
-      <SortComponent sortField={sortField} onSortChange={onSortChange} />
+    <div className="home-container">
+      <h1 className="home-title">Lista zaposlenika</h1>
+      <div className="filters-container">
+        <SearchBox
+          onChangeHandler={onSearchChange}
+          placeholder="search employees"
+          className="search-box"
+        />
+        <SelectComponent
+          jobTitles={jobTitles}
+          selectedPosition={selectedPosition}
+          onPositionChange={onPositionChange}
+        />
+        <SortComponent sortField={sortField} onSortChange={onSortChange} />
+      </div>
       <CardList employees={currentEmployees} />
       <Pagination
         employeesPerPage={employeesPerPage}
