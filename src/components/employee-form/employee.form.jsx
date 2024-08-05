@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import InputComponent from "../input-component/input.component";
+import ButtonComponent from "../button-component/button.component";
 import "./employee-form.styles.scss";
 
 const AddEmployee = () => {
@@ -71,7 +72,7 @@ const AddEmployee = () => {
               required
             />
           </div>
-          <button type="submit">Submit</button>
+          <ButtonComponent type="submit" text="Submit" disabled={false} />
         </form>
       </div>
     </div>
