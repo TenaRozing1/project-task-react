@@ -91,7 +91,7 @@ const Home = () => {
 
   return (
     <div className="home-container">
-      <h1 className="home-title">Lista zaposlenika</h1>
+      <h1 className="home-title">EMPLOYEES LIST</h1>
       <div className="filters-container">
         <SearchBox
           onChangeHandler={onSearchChange}

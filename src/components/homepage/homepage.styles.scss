@@ -2,6 +2,7 @@
   margin: 0 auto;
   width: 100%;
   max-width: 1360px;
+  margin-top: 40px;
 
   @media (min-width: 640px) and (max-width: 1399px) {
     margin-left: 60px;
@@ -20,7 +21,6 @@
     font-weight: medium;
     letter-spacing: 0.1rem;
     margin-bottom: 40px;
-    text-transform: uppercase;
     position: relative;
     display: inline-block;
 
