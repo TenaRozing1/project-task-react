@@ -91,8 +91,10 @@ const Home = () => {
 
   return (
     <div className="home-container">
-      <h1 className="home-title">EMPLOYEES LIST</h1>
-      <div className="filters-container">
+      <h1 data-aos="fade-up" className="home-title">
+        EMPLOYEES LIST
+      </h1>
+      <div data-aos="fade-down" className="filters-container">
         <SearchBox
           onChangeHandler={onSearchChange}
           placeholder="search employees"
@@ -105,7 +107,9 @@ const Home = () => {
         />
         <SortComponent sortField={sortField} onSortChange={onSortChange} />
       </div>
-      <CardList employees={currentEmployees} />
+      <div data-aos="fade-up">
+        <CardList employees={currentEmployees} />
+      </div>
       <Pagination
         employeesPerPage={employeesPerPage}
         totalEmployees={filteredEmployees.length}

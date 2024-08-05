@@ -29,7 +29,7 @@ const AddEmployee = () => {
 
   return (
     <div className="page-container">
-      <div className="add-employee-container">
+      <div data-aos="fade-up" className="add-employee-container">
         <h1>Add New Employee</h1>
         <form onSubmit={handleSubmit}>
           <div>
