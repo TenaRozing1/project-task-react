@@ -1,0 +1,108 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(17, 82, 161, 0.5);
+
+  .logo-image {
+    width: 100%;
+    height: 100%;
+    max-width: 60px;
+    max-height: 60px;
+  }
+
+  .navbar-links {
+    display: flex;
+    list-style: none;
+
+    li {
+      margin: 0 15px;
+
+      a {
+        color: #4f78aa;
+        text-decoration: none;
+        font-size: 1.15rem;
+        position: relative;
+        display: inline-block;
+        transition: color 0.3s ease;
+
+        &:hover {
+          &::after {
+            width: 60%;
+          }
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: -0.375rem;
+          left: 0;
+          width: 0;
+          height: 2px;
+          background-color: #005cb3;
+          transition: width 0.3s ease;
+        }
+      }
+    }
+  }
+
+  .navbar-hamburger {
+    display: none;
+    cursor: pointer;
+
+    .hamburger-icon {
+      width: 30px;
+      height: 3px;
+      background-color: #005cb3;
+      position: relative;
+      transition: all 0.3s ease;
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        width: 30px;
+        height: 3px;
+        background-color: #005cb3;
+        transition: all 0.3s ease;
+      }
+
+      &::before {
+        top: -10px;
+      }
+
+      &::after {
+        bottom: -10px;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .navbar-links {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 7%;
+      left: 0;
+      width: 100%;
+      background-color: white;
+      z-index: 50;
+
+      li {
+        margin: 10px 0;
+        text-align: center;
+      }
+
+      &.open {
+        display: flex;
+        background-color: white;
+      }
+    }
+
+    .navbar-hamburger {
+      display: block;
+    }
+  }
+}
