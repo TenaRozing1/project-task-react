@@ -1,5 +1,5 @@
 import React from "react";
-import CustomSelect from "../employee-form/custom-select/custom-select.component";
+import CustomSelect from "../custom-select/custom-select.component";
 
 const SortComponent = ({ sortField, onSortChange }) => (
   <CustomSelect

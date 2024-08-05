@@ -4,6 +4,7 @@
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 20px;
+  margin-top: 30px;
   text-align: center;
   color: #1e4739;
   transition: transform 0.25s ease-out;
@@ -16,6 +17,7 @@
 
   h2 {
     margin: 0 !important; // znam da ovo bas nije pametno koristiti :)
+    padding-top: 15px;
   }
 
   .first-name {
