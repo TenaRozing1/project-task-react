@@ -5,6 +5,7 @@ import SearchBox from "../search-box/search-box.component";
 import SelectComponent from "../select-component/select.component";
 import SortComponent from "../sort-component/sort.component";
 import Pagination from "../pagination.component/pagination.component";
+import { Helmet } from "react-helmet";
 import "./homepage.styles.scss";
 
 const Home = () => {
@@ -91,6 +92,17 @@ const Home = () => {
 
   return (
     <div className="home-container">
+      <Helmet>
+        <title>Employee Directory</title>
+        <meta
+          name="description"
+          content="Browse and manage employees in our directory."
+        />
+        <meta
+          name="keywords"
+          content="employees, directory, job titles, sorting"
+        />
+      </Helmet>
       <h1 data-aos="fade-up" className="home-title">
         EMPLOYEES LIST
       </h1>

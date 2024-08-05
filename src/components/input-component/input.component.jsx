@@ -1,7 +1,7 @@
 import React from "react";
 import "./input-component.styles.scss";
 
-const InputComponent = ({ className, type, placeholder, value, onChange, id, required }) => (
+const InputComponent = ({ className, type, placeholder, value, onChange, id, required, ariaLabel }) => (
   <input
     className={`input-component ${className}`}
     type={type}
@@ -10,6 +10,7 @@ const InputComponent = ({ className, type, placeholder, value, onChange, id, req
     onChange={onChange}
     id={id}
     required={required}
+    aria-label={ariaLabel}
   />
 );
 
