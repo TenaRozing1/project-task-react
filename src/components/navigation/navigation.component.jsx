@@ -9,6 +9,10 @@ const Navbar = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
+
   return (
     <nav className="navbar">
       <Link to="/">
@@ -16,10 +20,10 @@ const Navbar = () => {
       </Link>
       <ul className={`navbar-links ${isMobileMenuOpen ? "open" : ""}`}>
         <li>
-          <Link to="/">Home</Link>
+          <Link to="/" onClick={closeMobileMenu}>Home</Link>
         </li>
         <li>
-          <Link to="/add-employee">Add Employee</Link>
+          <Link to="/add-employee" onClick={closeMobileMenu}>Add Employee</Link>
         </li>
       </ul>
       <div className="navbar-hamburger" onClick={toggleMobileMenu}>
